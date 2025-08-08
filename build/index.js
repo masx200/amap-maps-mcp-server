@@ -160,7 +160,7 @@ const DISTANCE_TOOL = {
         properties: {
             origins: {
                 type: "string",
-                description: "起点经度，纬度，可以传多个坐标，使用分号隔离，比如120,30;120,31，坐标格式为：经度，纬度"
+                description: "起点经度，纬度，可以传多个坐标，使用竖线隔离，比如120,30|120,31，坐标格式为：经度，纬度"
             },
             destination: {
                 type: "string",
@@ -399,6 +399,7 @@ async function handleSearchDetail(id) {
                     city: poi.cityname,
                     type: poi.type,
                     alias: poi.alias,
+                    photos: poi.photos && poi.photos.length > 0 ? poi.photos[0] : undefined,
                     ...poi.biz_ext
                 }, null, 2)
             }],
@@ -700,7 +701,8 @@ async function handleTextSearch(keywords, city = "", citylimit = "false") {
                             id: poi.id,
                             name: poi.name,
                             address: poi.address,
-                            typecode: poi.typecode
+                            typecode: poi.typecode,
+                            photos: poi.photos && poi.photos.length > 0 ? poi.photos[0] : undefined
                         };
                     })
                 }, null, 2)
@@ -735,7 +737,8 @@ async function handleAroundSearch(location, radius = "1000", keywords = "") {
                             id: poi.id,
                             name: poi.name,
                             address: poi.address,
-                            typecode: poi.typecode
+                            typecode: poi.typecode,
+                            photos: poi.photos && poi.photos.length > 0 ? poi.photos[0] : undefined
                         };
                     })
                 }, null, 2)

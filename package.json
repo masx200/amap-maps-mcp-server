@@ -1,6 +1,6 @@
 {
-  "name": "@amap/amap-maps-mcp-server",
-  "version": "0.0.7",
+  "name": "@masx200/amap-maps-mcp-server",
+  "version": "1.0.0",
   "description": "MCP server for using the AMap Maps API",
   "author": "高德地图开放平台, PBC (https://lbs.amap.com)",
   "type": "module",
