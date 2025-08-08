@@ -25,6 +25,53 @@ https://lbs.amap.com/api/webservice/create-project-and-key.
 }
 ```
 
+### 环境变量
+
+可配置的环境变量：
+
+- `AMAP_MAPS_API_KEY`: 高德地图API密钥（必需）
+- `HTTP_API_TOKEN`: HTTP API访问令牌（可选）
+- `HTTP_API_PORT`: HTTP服务器端口号（可选，默认为3000）
+
+### Streamable-HTTP协议服务器
+
+除了作为MCP服务器运行外，本项目还支持启动独立的streamable-http协议服务器：
+
+#### 直接启动
+
+```bash
+node ./build/streamable-http.js
+```
+
+#### 使用环境变量配置
+
+```bash
+# 设置端口（默认3000）
+export HTTP_API_PORT=3000
+
+# 设置访问令牌（可选）
+export HTTP_API_TOKEN=your-secret-token
+
+# 设置高德地图API密钥
+export AMAP_MAPS_API_KEY=your-amap-api-key
+
+# 启动服务器
+node ./build/streamable-http.js
+```
+
+#### 使用示例
+
+启动后，服务器将在 `http://localhost:3000` 运行，支持以下端点：
+
+- `POST /mcp` - MCP协议通信端点
+- 支持streamable-http协议的实时数据流
+
+如果设置了 `HTTP_API_TOKEN`，请在请求头中添加：
+
+```
+Authorization: Bearer your-secret-token
+```
+
 ## Overview
 
 ### What is Amap Maps?
