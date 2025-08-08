@@ -45,3 +45,6 @@ run apt-get update && apt-get install -y tzdata && apt clean && rm -rf /var/lib/
 run cnpm i -g npm cnpm --registry=https://registry.npmmirror.com
 
 CMD ["node","/root/.npm/_npx/3f19108e4acac271/node_modules/@amap/amap-maps-mcp-server/build/streamable-http.js"]
+
+
+run yarn install --force --registry https://registry.npmmirror.com
