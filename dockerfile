@@ -19,10 +19,10 @@ RUN apt-get update  && apt-get install -y sudo  && rm -rf /var/lib/apt/lists/*
 run apt clean
 
 
-WORKDIR /root/.npm/_npx/3f19108e4acac271/node_modules/@amap/amap-maps-mcp-server
-run rm -rfv /root/.npm/_npx/3f19108e4acac271/node_modules/@amap/amap-maps-mcp-server/*
-copy ./* /root/.npm/_npx/3f19108e4acac271/node_modules/@amap/amap-maps-mcp-server
-copy ./build /root/.npm/_npx/3f19108e4acac271/node_modules/@amap/amap-maps-mcp-server/build
+WORKDIR /root/.npm/_npx/3f19108e4acac271/node_modules/@masx200/amap-maps-mcp-server
+run rm -rfv /root/.npm/_npx/3f19108e4acac271/node_modules/@masx200/amap-maps-mcp-server/*
+copy ./* /root/.npm/_npx/3f19108e4acac271/node_modules/@masx200/amap-maps-mcp-server
+copy ./build /root/.npm/_npx/3f19108e4acac271/node_modules/@masx200/amap-maps-mcp-server/build
 EXPOSE 3000 
 copy . .
 run npm config set registry https://registry.npmmirror.com
@@ -42,9 +42,9 @@ env EDITOR=nano
 env TZ=Asia/Shanghai
 
 run apt-get update && apt-get install -y tzdata && apt clean && rm -rf /var/lib/apt/lists/*
-run cnpm i -g npm cnpm --registry=https://registry.npmmirror.com
+run cnpm i -g npm cnpm --registry=https://registry.npmmirror.com yarn
 
-CMD ["node","/root/.npm/_npx/3f19108e4acac271/node_modules/@amap/amap-maps-mcp-server/build/streamable-http.js"]
+CMD ["node","/root/.npm/_npx/3f19108e4acac271/node_modules/@masx200/amap-maps-mcp-server/build/streamable-http.js"]
 
 
 run yarn install --force --registry https://registry.npmmirror.com
